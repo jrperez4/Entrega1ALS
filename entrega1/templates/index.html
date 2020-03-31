@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Entrega 1</title>
+
+    <script>
+        function check()
+        {
+
+            const edKilometros = document.getElementById("edKilometros")
+            const edTiempo = document.getElementById("edTiempo")
+            const edConsumoMedio = document.getElementById("edConsumoMedio")
+
+            var comprobacion = true;
+
+
+            if(isNaN(edTiempo.value.trim()) ||  isNaN(edKilometros.value.trim()) || isNaN(edConsumoMedio.value.trim())){
+
+               comprobacion = false;
+            }
+            else if( edKilometros.value.trim().length==0 || edTiempo.value.trim().length==0
+                || edConsumoMedio.value.trim().length==0 || edTiempo.value.trim()<=0 || edConsumoMedio.value.trim()<0
+                || edKilometros.value.trim()<0){
+                comprobacion = false;
+            }
+
+
+
+            return comprobacion;
+
+
+        }
+
+    </script>
+</head>
+<body>
+    <h1>Coches</h1>
+
+    <form id="frmHello"
+          action="/entrega1"
+          method="post"
+          onsubmit="return check()">
+
+
+        <label for="edKilometros"> Kilometros recorridos: </label>
+        <input type="text" id="edKilometros" name="edKilometros"/><br><br>
+
+         <label for="edTiempo"> Tiempo en horas: </label>
+        <input type="text" id="edTiempo" name="edTiempo"/><br><br>
+
+         <label for="edConsumoMedio"> Consumo cada 100 km: </label>
+        <input type="text" id="edConsumoMedio" name="edConsumoMedio"/><br><br>
+
+
+
+        <input type="submit" value="Comprobar"/>
+
+    </form>
+</body>
+</html>
